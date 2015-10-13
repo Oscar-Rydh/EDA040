@@ -49,14 +49,14 @@ class WashingProgram3 extends WashingProgram {
 		// Switch of temp regulation
 		myTempController.putEvent(new TemperatureEvent(this,
 				TemperatureEvent.TEMP_IDLE,
-				0.0));
+				00.0));
 
 		// Switch off spin
 		mySpinController.putEvent(new SpinEvent(this, SpinEvent.SPIN_OFF));
 
 		// Drain
 		myWaterController.putEvent(new WaterEvent(this,
-				WaterEvent.WATER_DRAIN,
+				WaterEvent.WATER_IDLE,
 				0.0));
 		mailbox.doFetch(); // Wait for Ack
 
