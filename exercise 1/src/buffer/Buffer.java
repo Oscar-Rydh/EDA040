@@ -31,6 +31,11 @@ class Buffer {
 		// calling process is delayed until a line becomes available.
 		// A caller of putLine hanging on buffer full should be released.
 		// ...
-		return null;
+		mutex.take();
+		String re = buffData;
+		mutex.give();
+		avail.take();
+		free.give();
+		return re;
 	}
 }
